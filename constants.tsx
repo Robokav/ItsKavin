@@ -1,11 +1,12 @@
 
 import React from 'react';
 import { Instagram, Github, Twitter, MessageCircle, Linkedin, ExternalLink,Youtube } from 'lucide-react';
+import profileImg from "./assets/profile.jpg";
 
 export const USER_PROFILE = {
   name: "Kavin Bavisi",
   role: "Creative Developer & Designer",
-  avatar: "profile1.jpg",
+  avatar: profileImg,
   bio: "From concept → prototype, I learn by building, breaking, and rebuilding smarter ⚙️ Driven by curiosity ✦ a constant learner ✦ a passionate maker — turning ideas into action ⚡"
 };
 
