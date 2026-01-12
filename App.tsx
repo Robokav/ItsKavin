@@ -33,7 +33,7 @@ const App: React.FC = () => {
 
         <footer className="mt-16 text-center space-y-4">
           <p className="text-slate-400 text-xs font-medium tracking-widest uppercase">
-            Built with Passion • 2024
+            Built with Passion • 2025
           </p>
           <div className="flex justify-center space-x-2">
             <span className="w-1.5 h-1.5 rounded-full bg-purple-300"></span>
