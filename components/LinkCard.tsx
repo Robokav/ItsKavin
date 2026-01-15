@@ -69,7 +69,7 @@ const LinkCard: React.FC<LinkCardProps> = ({ name, url, icon, color, glowColor }
   return (
     <a 
       href={url} 
-      target="blank" 
+      target= "_blank"
       onClick={handleClick}
       rel="noopener noreferrer"
       
@@ -89,7 +89,7 @@ const LinkCard: React.FC<LinkCardProps> = ({ name, url, icon, color, glowColor }
         <span className="font-bold text-slate-700 transition-colors duration-300 group-hover:text-white tracking-tight">
           {name}
         </span>
-      
+  
             
       </div>
       
