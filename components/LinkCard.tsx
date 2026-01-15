@@ -89,14 +89,7 @@ const LinkCard: React.FC<LinkCardProps> = ({ name, url, icon, color, glowColor }
         <span className="font-bold text-slate-700 transition-colors duration-300 group-hover:text-white tracking-tight">
           {name}
         </span>
-      {isEmailLink && (
-            <span className={`
-              text-[10px] transition-colors font-bold uppercase tracking-wider
-              ${copied ? 'text-green-500' : 'text-slate-400 group-hover:text-white/80'}
-            `}>
-              {copied ? '✓ Email Copied!' : isOpening ? 'Opening Mail...' : 'Click to Copy & Send'}
-            </span>
-          )}
+      
             
       </div>
       
