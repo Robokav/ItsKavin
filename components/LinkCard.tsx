@@ -1,6 +1,6 @@
 
 import React,{useState} from 'react';
-import { ExternalLink,Check } from 'lucide-react';
+import { ExternalLink,Check,Copy } from 'lucide-react';
 
 interface LinkCardProps {
   name: string;
@@ -12,11 +12,65 @@ interface LinkCardProps {
 }
 
 const LinkCard: React.FC<LinkCardProps> = ({ name, url, icon, color, glowColor }) => {
+  const [copied, setCopied] = useState(false);
+  const [isOpening, setIsOpening] = useState(false);
+  
+  const isMailto = url.startsWith('mailto:');
+  const isGmailWeb = url.includes('mail.google.com');
+  const isEmailLink = isMailto || isGmailWeb;
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        // Fallback for non-secure contexts or older browsers
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-9999px";
+        textArea.style.top = "0";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        textArea.remove();
+      }
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isEmailLink) {
+      // Extract the clean email address
+      let email = "";
+      if (isMailto) {
+        email = url.replace('mailto:', '').split('?')[0];
+      } else if (url.includes('to=')) {
+        const match = url.match(/to=([^&]+)/);
+        email = match ? decodeURIComponent(match[1]) : "";
+      }
+
+      if (email) {
+        copyToClipboard(email);
+      }
+
+      if (isMailto) {
+        // We still let the browser try to open the app, 
+        // but the copy is the primary successful event the user sees.
+        setIsOpening(true);
+        setTimeout(() => setIsOpening(false), 2000);
+      }
+    }
+  };
   
   return (
     <a 
       href={url} 
-      target="_blank"
+      target="blank" 
+      onClick={handleClick}
       rel="noopener noreferrer"
       
      
@@ -35,7 +89,14 @@ const LinkCard: React.FC<LinkCardProps> = ({ name, url, icon, color, glowColor }
         <span className="font-bold text-slate-700 transition-colors duration-300 group-hover:text-white tracking-tight">
           {name}
         </span>
-      
+      {isEmailLink && (
+            <span className={`
+              text-[10px] transition-colors font-bold uppercase tracking-wider
+              ${copied ? 'text-green-500' : 'text-slate-400 group-hover:text-white/80'}
+            `}>
+              {copied ? '✓ Email Copied!' : isOpening ? 'Opening Mail...' : 'Click to Copy & Send'}
+            </span>
+          )}
             
       </div>
       
