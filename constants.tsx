@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Instagram, Github, Twitter, MessageCircle, Linkedin, ExternalLink,Youtube } from 'lucide-react';
+import { Instagram, Github, Twitter,Mail, MessageCircle, Linkedin, ExternalLink,Youtube } from 'lucide-react';
 import profileImg from "./assets/profile.jpg";
 
 export const USER_PROFILE = {
@@ -19,8 +19,16 @@ export const SOCIAL_LINKS = [
     color: 'hover:bg-[#0077B5]',
     textColor: 'hover:text-white'
   },
-    {
+  {
     id: '2',
+    name: 'Gmail',
+    url: 'https://mail.google.com/mail/?view=cm&to=kavinbavisi@gmail.com',
+    icon: <Mail className="w-5 h-5" />,
+    color: 'hover:bg-[#D44638]',
+    glowColor: 'group-hover:shadow-[0_0_20px_-5px_#D44638]'
+  },
+    {
+    id: '3',
     name: 'Instagram',
     url: 'https://www.instagram.com/kav_in2506/',
     icon: <Instagram className="w-5 h-5" />,
@@ -36,7 +44,7 @@ export const SOCIAL_LINKS = [
     textColor: 'hover:text-white'
   },*/
     {
-    id: '3',
+    id: '4',
     name: 'WhatsApp',
     url: 'https://wa.me/8422060314',
     icon: <MessageCircle className="w-5 h-5" />,

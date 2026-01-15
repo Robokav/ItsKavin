@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { ExternalLink } from 'lucide-react';
+import React,{useState} from 'react';
+import { ExternalLink,Check } from 'lucide-react';
 
 interface LinkCardProps {
   name: string;
@@ -8,14 +8,18 @@ interface LinkCardProps {
   icon: React.ReactNode;
   color: string;
   glowColor: string;
+
 }
 
 const LinkCard: React.FC<LinkCardProps> = ({ name, url, icon, color, glowColor }) => {
+  
   return (
     <a 
       href={url} 
-      target="_blank" 
+      target="_blank"
       rel="noopener noreferrer"
+      
+     
       className={`
         group relative flex items-center justify-between w-full p-4 mb-3 
         bg-white/80 glass rounded-2xl shadow-sm border border-white/50 
@@ -31,6 +35,8 @@ const LinkCard: React.FC<LinkCardProps> = ({ name, url, icon, color, glowColor }
         <span className="font-bold text-slate-700 transition-colors duration-300 group-hover:text-white tracking-tight">
           {name}
         </span>
+      
+            
       </div>
       
       <div className="p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 z-10">
