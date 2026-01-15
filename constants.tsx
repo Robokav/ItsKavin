@@ -22,7 +22,8 @@ export const SOCIAL_LINKS = [
   {
     id: '2',
     name: 'Gmail',
-    url: 'https://mail.google.com/mail/?view=cm&to=kavinbavisi@gmail.com',
+    url:"mailto:youremail@gmail.com",
+    //url: 'https://mail.google.com/mail/?view=cm&to=kavinbavisi@gmail.com',
     icon: <Mail className="w-5 h-5" />,
     color: 'hover:bg-[#D44638]',
     glowColor: 'group-hover:shadow-[0_0_20px_-5px_#D44638]'
