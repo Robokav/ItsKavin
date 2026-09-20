@@ -4,7 +4,7 @@ import { Instagram, Github, Twitter,Mail, MessageCircle, Linkedin, ExternalLink,
 import profileImg from "./assets/profile.jpg";
 
 export const USER_PROFILE = {
-  name: "Kavin Bavisi",
+  name: "GAURI",
   role: "Creative Developer & Designer",
   avatar: profileImg,
   bio: "From concept → prototype, I learn by building, breaking, and rebuilding smarter ⚙️ Driven by curiosity ✦ a constant learner ✦ a passionate maker — turning ideas into action ⚡"
