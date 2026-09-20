@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Instagram, Github, Twitter,Mail, MessageCircle, Linkedin, ExternalLink,Youtube } from 'lucide-react';
-import profileImg from "./assets/profile.jpg";
+import profileImg from "./assets/WhatsApp Image 2026-09-20 at 2.00.55 PM.jpeg";
 
 export const USER_PROFILE = {
   name: "GAURI",
